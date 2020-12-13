@@ -1,0 +1,15 @@
+
+# Ignore all Abaqus files except .cae and .odb
+*.rpy*
+*.rpt
+*.log
+*.com
+*.dat
+*.inp
+*.ipm
+*.msg
+*.prt
+*.sim
+*.sta
+*.jnl
+*.rec

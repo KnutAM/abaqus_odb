@@ -91,14 +91,16 @@ def get_multiple_positions(odb, inst_name, positions, variable, step_numbers,
                  'incr': incr_data,
                  'node': []}
     
-    
+    odb_inst_node_labels = [n.label for n in odb_inst.nodes]
+
     for node_ind, xy_data in enumerate(xy_data_list):
         data = np.array(xy_data.data)
         if not 'time' in node_data:
             node_data['time'] = data[:,0]
         node_data[node_ind] = data[:,1]
-        node_data['node'].append(odb_inst.nodes[node_labels[node_ind]].coordinates)
-        
+        odb_node_ind = odb_inst_node_labels.index(node_labels[node_ind])
+        node_data['node'].append(odb_inst.nodes[odb_node_ind].coordinates)
+
     node_data['node'] = np.array(node_data['node'])
     
     return node_data
